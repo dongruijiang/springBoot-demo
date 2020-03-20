@@ -1,5 +1,0 @@
-aaa-dev
-aaa-local master
-aaa-origin master
-ninhao
-sosonainai
