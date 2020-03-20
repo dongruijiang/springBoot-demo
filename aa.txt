@@ -2,3 +2,4 @@ aaa-dev
 aaa-local master
 aaa-dev
 aaa-origin master
+sosonainai
