@@ -26,12 +26,13 @@
 	</properties>
 
 	<dependencies>
-		<!-- SpringBoot 核心包 -->
+		<!-- SpringBoot Web容器 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
+		
+		<!-- SpringBoot 测试 -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -42,6 +43,14 @@
 					<artifactId>junit-vintage-engine</artifactId>
 				</exclusion>
 			</exclusions>
+		</dependency>
+		
+		<!-- 可以不加，原因暂未知  -->
+		<!-- 仅用于@ConfigurationProperties(prefix = "my")警告  -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
 	</dependencies>
 

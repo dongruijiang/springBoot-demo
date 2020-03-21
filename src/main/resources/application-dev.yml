@@ -1,0 +1,7 @@
+#开发环境
+dev:
+  uname: jdr
+  age: 18
+  
+server:
+  port: 8082

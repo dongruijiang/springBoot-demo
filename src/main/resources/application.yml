@@ -1,0 +1,10 @@
+my:
+  name: springBoot-demo
+  version: 0.01
+  copyrightYear: 2020
+  uuid: ${random.uuid}
+  greeting: hi,i'm ${my.name} 江
+  
+spring:
+  profiles:
+    active: dev
