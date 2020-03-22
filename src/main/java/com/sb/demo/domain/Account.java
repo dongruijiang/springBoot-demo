@@ -6,14 +6,14 @@ package com.sb.demo.domain;
  * @author jdr
  */
 public class Account {
-	private int id ;
+	private Long id ;
     private String name ;
-    private double money;
+    private Double money;
     
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -22,10 +22,10 @@ public class Account {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public double getMoney() {
+	public Double getMoney() {
 		return money;
 	}
-	public void setMoney(double money) {
+	public void setMoney(Double money) {
 		this.money = money;
 	}
 }

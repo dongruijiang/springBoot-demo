@@ -24,3 +24,11 @@ spring:
     url: jdbc:mysql://localhost:3306/springboot_demo?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
     username: root
     password: root
+
+# MyBatis配置
+mybatis:  # 配置扫描指定包别名路径
+  type-aliases-package: com.sb.demo.**.domain
+  # 配置mapper的扫描路径，扫描所有的mapper.xml映射文件
+  mapper-locations: classpath:mybatis/**/*Mapper.xml
+  # 加载全局的配置文件
+  #config-location: classpath:mybatis/mybatis-config.xml
