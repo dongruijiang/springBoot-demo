@@ -52,4 +52,18 @@ public interface ICardService {
 	 * @return
 	 */
 	int updateCardToCard();
+	
+	/**
+	 * 测试Redis--添加
+	 * @param key
+	 * @param value
+	 */
+	void set(String key,String value);
+	
+	/**
+	 * 测试Redis--获取
+	 * @param key
+	 * @return
+	 */
+	String get(String key);
 }

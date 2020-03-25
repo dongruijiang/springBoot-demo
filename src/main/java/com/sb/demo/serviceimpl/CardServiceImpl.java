@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.sb.demo.dao.CardMapper;
 import com.sb.demo.domain.Card;
+import com.sb.demo.redis.dao.RedisDao;
 import com.sb.demo.service.ICardService;
 
 /**
@@ -19,6 +20,9 @@ public class CardServiceImpl implements ICardService{
 	
 	@Autowired
 	CardMapper cardMapper;
+	
+	@Autowired
+	RedisDao redisDao;
 	
 	/**
 	 * 查询一条数据信息
@@ -85,14 +89,41 @@ public class CardServiceImpl implements ICardService{
 		c1.setId(1L);
 		c1.setName("aaa_1");
 		c1.setCardNumber("990");
-		cardMapper.updateCard(c1);
+		
+		//redisDao.set("card:id:"+c1.getId(), c1.getName());//入REDIS库
+		///** 制造错误异常 */
+		//int i=1/0;
+		cardMapper.updateCard(c1);//入MYSQL库
+		
 		/** 2.制造错误异常 */
-		int i=1/0;
+		int ii=1/0;
+		
 		/** 3.给C2用户卡号加10 */
 		Card c2 = new Card();
 		c2.setId(2L);
 		c2.setName("aaa_2");
 		c2.setCardNumber("2010");
-		return cardMapper.updateCard(c2);
+		
+		//redisDao.set("card:id:"+c2.getId(), c2.getName());//入REDIS库
+		
+		return cardMapper.updateCard(c2);//入MYSQL库
+	}
+	
+	/**
+	 * 测试Redis--添加
+	 * @param key
+	 * @param value
+	 */
+	public void set(String key,String value) {
+		redisDao.set(key, value);
+	}
+	
+	/**
+	 * 测试Redis--获取
+	 * @param key
+	 * @return
+	 */
+	public String get(String key) {
+		return redisDao.get(key);
 	}
 }

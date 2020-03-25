@@ -13,7 +13,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<sql id="selectCardVo">
-		select id, name, card_number from card 
+		select id, name, card_number, create_time, update_time from card 
 	</sql>
 	
 	<select id="selectCardAll" resultMap="CardResult">

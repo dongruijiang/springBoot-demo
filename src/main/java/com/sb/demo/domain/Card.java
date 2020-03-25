@@ -52,4 +52,12 @@ public class Card {
 		this.updateTime = updateTime;
 	}
 	
+	@Override
+	public String toString() {
+		return "Card [id=" + id + ", name=" + name + ", cardNumber=" + cardNumber + ", createTime=" + createTime
+				+ ", updateTime=" + updateTime + "]";
+	}
+	
+	
+	
 }

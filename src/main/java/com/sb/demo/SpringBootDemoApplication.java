@@ -11,7 +11,7 @@ import org.springframework.web.filter.CorsFilter;
 @SpringBootApplication
 @ComponentScan
 //@EnableDiscoveryClient
-//@MapperScan("com.sb.demo.dao")
+//@MapperScan("com.sb.demo.**.dao")
 public class SpringBootDemoApplication {
 
 	public static void main(String[] args) {

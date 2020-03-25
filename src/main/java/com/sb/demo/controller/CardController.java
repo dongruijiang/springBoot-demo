@@ -89,6 +89,30 @@ public class CardController {
 		return rows > 0 ? new result("200", "success!") : new result("500", "fail!");
 	}
 	
+	/**
+	 * 测试Redis--添加数据
+	 * @param Card
+	 * @return
+	 */
+	@RequestMapping(value = "/redis", method = RequestMethod.POST)
+	public result addRedisSave(Card card) {
+		/** 假定本次添加必定成功 */
+		cardService.set("card:id:"+card.getId(), card.getName());
+		return new result("200", "success!");
+	}
+	
+	/**
+	 * 测试Redis--查询数据
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value = "/redis/{id}", method = RequestMethod.GET)
+	public result getInfo(@PathVariable("id") String id) {
+		/** 假定本次查询必定有数据 */
+		String name = cardService.get("card:id:"+id);
+		return new result("200", "card:id:"+id+"  " +name);
+	}
+	
 //	 @GetMapping(value = { "/", "/{userId}" })
 //	    public AjaxResult getInfo(@PathVariable(value = "userId", required = false) Long userId)
 //	 public AjaxResult changeStatus(@RequestBody SysUser user)
