@@ -1,4 +1,4 @@
-package com.sb.demo.config;
+package com.sb.demo.framework.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

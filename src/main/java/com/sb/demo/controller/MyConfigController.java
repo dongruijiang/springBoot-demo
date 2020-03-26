@@ -5,9 +5,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.sb.demo.config.DevConfig;
-import com.sb.demo.config.DevUserConfig;
-import com.sb.demo.config.MyConfig;
+import com.sb.demo.framework.config.DevConfig;
+import com.sb.demo.framework.config.DevUserConfig;
+import com.sb.demo.framework.config.MyConfig;
 
 /**
  * 通过实体读取配置文件中的信息

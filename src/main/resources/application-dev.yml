@@ -36,6 +36,7 @@ spring:
     password: redis
     # 连接超时时间
     timeout: 10s
+    # lettuce客户端 
     lettuce:      pool:
         # 连接池中的最小空闲连接
         min-idle: 0

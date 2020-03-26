@@ -1,4 +1,4 @@
-package com.sb.demo.config;
+package com.sb.demo.framework.config;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;

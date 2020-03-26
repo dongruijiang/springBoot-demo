@@ -1,4 +1,4 @@
-package com.sb.demo.utils;
+package com.sb.demo.framework.utils;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,7 +27,7 @@ import org.springframework.stereotype.Component;
 public class RedisCache {
 	@Autowired
 	public RedisTemplate redisTemplate;
-
+	
 	/**
 	 * 缓存基本的对象，Integer、String、实体类等
 	 *

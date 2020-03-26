@@ -9,9 +9,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 @SpringBootApplication
-@ComponentScan
-//@EnableDiscoveryClient
+//@ComponentScan
 //@MapperScan("com.sb.demo.**.dao")
+//@EnableScheduling //开启定时任务
 public class SpringBootDemoApplication {
 
 	public static void main(String[] args) {
