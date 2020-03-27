@@ -101,6 +101,12 @@
 		    <version>${fastjson.version}</version>
 		</dependency>
 		
+		<!--常用工具类包 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		
 		<!-- 可以不加，原因暂未知  -->
 		<!-- 仅用于@ConfigurationProperties(prefix = "my")警告  -->
 		<dependency>
