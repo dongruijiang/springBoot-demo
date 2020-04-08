@@ -2,6 +2,9 @@ package com.sb.demo.framework.exception;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.authentication.AccountExpiredException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -61,35 +64,35 @@ public class GlobalExceptionHandler {
         return AjaxResult.error(HttpStatus.NOT_FOUND, "路径不存在，请检查路径是否正确");
     }
     
-//    /**
-//     *  spring security的权限异常
-//     */
-//    @ExceptionHandler(AccessDeniedException.class)
-//    public AjaxResult handleAuthorizationException(AccessDeniedException e)
-//    {
-//        log.error(e.getMessage());
-//        return AjaxResult.error(HttpStatus.FORBIDDEN, "没有权限，请联系管理员授权");
-//    }
-//    
-//    /**
-//     *  spring security的帐户失效时异常
-//     */
-//    @ExceptionHandler(AccountExpiredException.class)
-//    public AjaxResult handleAccountExpiredException(AccountExpiredException e)
-//    {
-//        log.error(e.getMessage(), e);
-//        return AjaxResult.error(e.getMessage());
-//    }
-//    
-//    /**
-//     * spring security-用户名不存在
-//     */
-//    @ExceptionHandler(UsernameNotFoundException.class)
-//    public AjaxResult handleUsernameNotFoundException(UsernameNotFoundException e)
-//    {
-//        log.error(e.getMessage(), e);
-//        return AjaxResult.error(e.getMessage());
-//    }
+    /**
+     *  spring security的权限异常
+     */
+    @ExceptionHandler(AccessDeniedException.class)
+    public AjaxResult handleAuthorizationException(AccessDeniedException e)
+    {
+        log.error(e.getMessage());
+        return AjaxResult.error(HttpStatus.FORBIDDEN, "没有权限，请联系管理员授权");
+    }
+    
+    /**
+     *  spring security的帐户失效时异常
+     */				   
+    @ExceptionHandler(AccountExpiredException.class)
+    public AjaxResult handleAccountExpiredException(AccountExpiredException e)
+    {
+        log.error(e.getMessage(), e);
+        return AjaxResult.error(e.getMessage());
+    }
+    
+    /**
+     * spring security-用户名不存在
+     */
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public AjaxResult handleUsernameNotFoundException(UsernameNotFoundException e)
+    {
+        log.error(e.getMessage(), e);
+        return AjaxResult.error(e.getMessage());
+    }
     
     /**
      *  其他类别异常--不太好细分类

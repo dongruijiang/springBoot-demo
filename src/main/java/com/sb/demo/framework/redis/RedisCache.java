@@ -1,4 +1,4 @@
-package com.sb.demo.framework.utils;
+package com.sb.demo.framework.redis;
 
 import java.util.ArrayList;
 import java.util.Collection;

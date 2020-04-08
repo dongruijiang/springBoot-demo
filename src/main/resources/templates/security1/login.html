@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>登陆</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+	crossorigin="anonymous">
+<link
+	href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css"
+	rel="stylesheet" crossorigin="anonymous" />
+
+<link rel="shortcut icon" th:href="@{/favicon.ico}"/>
+<script th:src="@{/js/jquery-3.4.1.min.js}"></script>
+<script>
+		$(document).ready(function(){
+			findCaptchaImage();
+			$("#captchaImage").click(function(){
+				findCaptchaImage();
+			});
+		});
+		
+		function findCaptchaImage(){
+			$.ajax({
+			    url:"/captchaImage", //请求的url地址
+			    dataType:"JSON", //返回格式为json\text
+			    async:true,//请求是否异步，默认为异步，这也是ajax重要特性
+			    data:{"id":"value"}, //参数值
+			    type:"GET", //请求方式
+			    beforeSend:function(){
+			        //请求前的处理
+					//$("#p1").html("开始");
+			    },
+			    success:function(req){
+			        //请求成功时处理
+					$("#uuid").val(req.uuid);
+					$("#captchaImage").attr("src","data:image/gif;base64,"+req.img);
+					
+					$("#smsUuid").val(req.uuid);
+			    },
+			    complete:function(){
+			        //请求完成的处理
+					//$("#p1").html("完成");
+			    },
+			    error:function(req){
+			        //请求出错处理
+					$("#p1").html("错误");
+			    }
+			});
+		}
+		</script>
+</head>
+<body>
+	<div class="container">
+		<form class="form-signin" method="post" action="/s1/doLogin">
+			<h2 class="form-signin-heading">用户名、密码登陆</h2>
+			<p>
+				<label for="username" class="sr-only">用户名</label> <input type="text"
+					id="username" name="username" class="form-control"
+					placeholder="Username" required autofocus>
+			</p>
+			<p>
+				<label for="password" class="sr-only">密码</label> <input
+					type="password" id="password" name="password" class="form-control"
+					placeholder="Password" required>
+			</p>
+			<!-- <input name="_csrf" type="hidden" value="149e7231-8da5-45fc-a96e-b89d72a5fc35" />-->
+			<p>
+				<label for="code" class="sr-only">验证码</label>
+				<input type="text" class="form-control" id="code" name="code" 
+				placeholder="验证码" required autofocus>
+				<img id="captchaImage" alt="点击更换验证码" style="cursor: pointer;">
+				<input id="uuid" name="uuid" type="text" value="" />
+			</p>
+			<p>
+				<label><input type="checkbox" name="remember-me"/>记住我，下次自动登录</label>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">立即登陆</button>
+			</p>
+		</form>
+		<br/><br/>
+		<form class="form-signin" method="post" action="/s1/doSmsLogin">
+			<h2 class="form-signin-heading">手机号-手机验证码登陆</h2>
+			<p>
+				<label for="phonenumber" class="sr-only">手机号</label> <input type="text"
+					id="phonenumber" name="phonenumber" class="form-control"
+					placeholder="phonenumber" required autofocus>
+			</p>
+			<p>
+				<label for="smsCode" class="sr-only">验证码</label>
+				<input type="text" class="form-control" id="smsCode" name="smsCode" 
+				placeholder="验证码" required autofocus>
+				<input id="smsUuid" name="smsUuid" type="text" value="" />
+			</p>
+			<p>
+				<button class="btn btn-lg btn-primary btn-block" type="submit">立即登陆</button>
+			</p>
+		</form>
+	</div>
+</body>
+</html>

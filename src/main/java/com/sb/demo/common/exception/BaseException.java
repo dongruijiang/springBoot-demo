@@ -8,6 +8,7 @@ import com.sb.demo.common.utils.StringUtils;
 /**
  * 工具类 ---通用异常 
  * 基础类异常
+ * 自定义异常基类
  * 
  * @date 2020年3月26日 下午11:14:44
  * @author jdr

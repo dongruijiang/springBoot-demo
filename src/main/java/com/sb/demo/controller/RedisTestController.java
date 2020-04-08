@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.sb.demo.domain.Card;
 import com.sb.demo.domain.result;
-import com.sb.demo.framework.utils.RedisCache;
+import com.sb.demo.framework.redis.RedisCache;
 
 /**
  * Redis工具类测试方法--- Controller类

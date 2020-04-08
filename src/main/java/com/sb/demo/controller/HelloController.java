@@ -10,7 +10,7 @@ import com.sb.demo.domain.result;
 @RestController
 public class HelloController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/index")
 	public String index() {
 		return "index";
 	}
